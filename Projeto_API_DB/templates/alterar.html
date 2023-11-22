@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='correios.jpg') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Alteração de Endereços</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #181661;">
+            <div class="container">
+                <a class="navbar-brand" href="http://127.0.0.1:5000/consultar">
+                    <img src="{{ url_for('static', filename='correios.jpg') }}" width="120" height="53">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                                <li class="nav-item menu">
+                                <a class="nav-link text-light" href="http://127.0.0.1:5000/consultar">Consulta CEP |</a>
+                            </li>
+                                <li class="nav-item menu">
+                                <a class="nav-link text-light" href="http://127.0.0.1:5000/alterar">Alterar CEP |</a>
+                            </li>
+                                <li class="nav-item menu">
+                                <a class="nav-link text-light" href="http://127.0.0.1:5000/deletar">Deletar CEP </a>
+                            </li>
+                    </ul>
+                    <a href="http://127.0.0.1:5000/inserir" class="btn btn-outline-primary">Cadastrar CEP</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="div_principal">
+        <div class="campo_buscar" style="margin-top: 40px;">
+            <h1 class="mb-3 p-1 texto" style="background-color: #25c710; color: white;">Alterar CEP</h1>
+            <form id="cepForm" method="get">
+                <div class="mb-3 input-group mt-lg-5">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" class="form-control " name="cep" placeholder="Digite o CEP">
+                        <button type="submit" class="btn btn-success" onclick="apiGetPut()">consultar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="div_principal">
+        <div class="campo_buscar" style="margin-top: 40px;">
+                <div class="mb-3 input-group mt-lg-5">
+                    <label for="cep" class="tamanho">CEP:</label>
+                    <input type="text" id="cep1" class="form-control " name="cep" placeholder="Digite o CEP">
+                </div>
+                <div class="mb-3 input-group mt-lg-5">
+                    <label for="endereco" class="tamanho">End:</label>
+                    <input type="text" id="endereco"  class="form-control " name="cep" placeholder="Digite o endereco">
+                </div>
+                <div class="mb-3 input-group mt-lg-5">
+                    <label for="bairro" class="tamanho">Bair:</label>
+                    <input type="text" id="bairro" class="form-control " name="cep" placeholder="Digite a Cidade">
+                </div>
+                <div class="mb-3 input-group mt-lg-5">
+                    <label for="uf" class="tamanho">UF:</label>
+                    <input type="text" id="uf" class="form-control " name="cep" placeholder="Digite a UF">
+                </div>
+                <div class="mb-3 input-group mt-lg-5">
+                    <label for="municipio" class="tamanho">Mun:</label>
+                    <input type="text" id="municipio"  class="form-control " name="cep" placeholder="Digite o Município">
+                    <button type="submit" class="btn btn-success" onclick="alterarCep()">Alterar</button>
+                </div>
+        </div>
+    </div>
+    
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <footer class="rodape" style="background-color: #181661;">
+        <p style="color: white; display: flex; align-items: center; justify-content: center;">Via CEP API</p>
+    </footer>
+</body>
+</html>
